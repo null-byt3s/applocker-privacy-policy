@@ -16,7 +16,7 @@
 <body>
 
 <h1>AppLocker – Privacy Policy</h1>
-<p class="date">Last updated: March 2026</p>
+<p class="date">Last updated: July 2026</p>
 
 <h2>Overview</h2>
 <p>AppLocker ("the App") is developed by DevCodeApps. This Privacy Policy explains how we collect, use, and protect your information when you use AppLocker.</p>
@@ -24,24 +24,33 @@
 <h2>Data We Collect</h2>
 <ul>
   <li><strong>Installed app list:</strong> We query the list of installed applications on your device solely to display them in the app list so you can choose which apps to lock. This data never leaves your device.</li>
-  <li><strong>Camera (Intruder Selfie):</strong> If you enable the Intruder Selfie feature (Premium), the front camera captures a photo when someone enters the wrong PIN. Photos are stored locally on your device only and are never uploaded.</li>
+  <li><strong>Camera (Intruder Selfie):</strong> If you enable the Intruder Selfie feature (Premium), the front camera captures a photo when someone enters the wrong PIN. Photos are stored locally on your device. They are only ever sent off your device if you separately turn on Email Break-in Alerts (see below).</li>
   <li><strong>Usage Stats:</strong> We use Android's UsageStatsManager to detect when a locked app is launched. This data is processed locally in real time and is never stored or transmitted.</li>
   <li><strong>Biometric data:</strong> Fingerprint/biometric authentication is handled entirely by the Android OS (BiometricPrompt). We do not access or store any biometric data.</li>
-  <li><strong>Notifications:</strong> We send local notifications for break-in alerts. No notification data is sent to external servers.</li>
+  <li><strong>Notifications:</strong> We send local notifications for break-in alerts. Notification content is not sent to external servers.</li>
+  <li><strong>Email address (optional, Pro):</strong> Only if you turn on Email Break-in Alerts. We send a 6-digit code to the address to confirm it belongs to you, and then use it to deliver alerts. You can change it or switch the feature off at any time.</li>
+  <li><strong>Break-in evidence (optional, Pro):</strong> While Email Break-in Alerts is on, a failed-unlock event sends the intruder photo (if captured), the locked app's name, the time of the attempt, and your device model over an encrypted connection to our server, for the sole purpose of emailing them to your verified address.</li>
+  <li><strong>Usage analytics (with your consent):</strong> Via Google Analytics for Firebase we collect anonymous product events — for example which onboarding step you reached, which features you open, and whether a purchase screen was shown — together with app version, device model, OS version, coarse region, and a randomly generated app-instance identifier. Collection is off until you consent, and you can change your choice at any time from Privacy Settings in the app.</li>
+  <li><strong>Crash diagnostics:</strong> Via Firebase Crashlytics, if the app crashes we collect the crash report (stack trace), device model, OS version, and app version so we can fix the fault.</li>
 </ul>
 
 <h2>Data We Do NOT Collect</h2>
 <ul>
-  <li>We do not collect personal information (name, email, phone number).</li>
-  <li>We do not track your location.</li>
-  <li>We do not transmit app usage data, intruder photos, or any on-device data to our servers.</li>
-  <li>We do not sell or share your data with third parties.</li>
+  <li>We do not collect your name, phone number, or location.</li>
+  <li>We collect an email address <em>only</em> if you explicitly enable Email Break-in Alerts. No email is required to use the app.</li>
+  <li>Your PIN and pattern never leave your device.</li>
+  <li>Intruder photos stay on your device unless you enable Email Break-in Alerts.</li>
+  <li>We never collect the contents of your locked apps, your messages, or your files.</li>
+  <li>Analytics and crash data never include your PIN, your photos, or the list of apps you have locked.</li>
+  <li>We do not sell your data.</li>
 </ul>
 
 <h2>Third-Party Services</h2>
 <ul>
   <li><strong>Google AdMob:</strong> The free version displays ads served by Google AdMob. AdMob may collect an advertising ID (GAID) for ad personalization. See <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</li>
   <li><strong>Google Play Billing:</strong> In-app purchases are processed by Google Play. We do not handle or store payment information directly.</li>
+  <li><strong>Google Analytics for Firebase:</strong> Anonymous usage analytics, collected only with your consent. See <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</li>
+  <li><strong>Firebase Crashlytics:</strong> Crash and stability reporting. See <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</li>
 </ul>
 
 <h2>Permissions Explained</h2>
@@ -56,7 +65,8 @@
 </ul>
 
 <h2>Data Security</h2>
-<p>Your PIN is stored locally on your device in a hashed format (SHA-256). All sensitive data remains on your device. We do not operate servers that receive personal data from this app.</p>
+<p>Your PIN is stored locally on your device in a hashed format (SHA-256) and never leaves it. Unless you turn on Email Break-in Alerts, no personal data is sent off your device.</p>
+<p>If you do turn on Email Break-in Alerts, evidence is sent to a server we operate at devcode.cloud over an encrypted (HTTPS/TLS) connection. That server <strong>relays and discards</strong>: the intruder photo is attached to the email sent to you and is never written to disk on the server. Your email address is held only transiently — to check the verification code and to enforce anti-abuse rate limits — and is not kept as a permanent record. Alerts can only be sent to an address you have verified with a code.</p>
 
 <h2>Children's Privacy</h2>
 <p>AppLocker is not directed at children under 13. We do not knowingly collect data from children.</p>

@@ -16,7 +16,7 @@
 <body>
 
 <h1>AppLocker – Privacy Policy</h1>
-<p class="date">Last updated: July 2026</p>
+<p class="date">Last updated: October 2026</p>
 
 <h2>Overview</h2>
 <p>AppLocker ("the App") is developed by DevCodeApps. This Privacy Policy explains how we collect, use, and protect your information when you use AppLocker.</p>
@@ -24,22 +24,20 @@
 <h2>Data We Collect</h2>
 <ul>
   <li><strong>Installed app list:</strong> We query the list of installed applications on your device solely to display them in the app list so you can choose which apps to lock. This data never leaves your device.</li>
-  <li><strong>Camera (Intruder Selfie):</strong> If you enable the Intruder Selfie feature (Premium), the front camera captures a photo when someone enters the wrong PIN. Photos are stored locally on your device. They are only ever sent off your device if you separately turn on Email Break-in Alerts (see below).</li>
+  <li><strong>Camera (Intruder Selfie):</strong> If you enable the Intruder Selfie feature (paid: AppLocker Pro or Lifetime Premium) and allow camera access, the front camera captures a photo when someone enters the wrong PIN. Photos are stored locally on your device and never leave it.</li>
   <li><strong>Usage Stats:</strong> We use Android's UsageStatsManager to detect when a locked app is launched. This data is processed locally in real time and is never stored or transmitted.</li>
   <li><strong>Biometric data:</strong> Fingerprint/biometric authentication is handled entirely by the Android OS (BiometricPrompt). We do not access or store any biometric data.</li>
-  <li><strong>Notifications:</strong> We send local notifications for break-in alerts. Notification content is not sent to external servers.</li>
-  <li><strong>Email address (optional, Pro):</strong> Only if you turn on Email Break-in Alerts. We send a 6-digit code to the address to confirm it belongs to you, and then use it to deliver alerts. You can change it or switch the feature off at any time.</li>
-  <li><strong>Break-in evidence (optional, Pro):</strong> While Email Break-in Alerts is on, a failed-unlock event sends the intruder photo (if captured), the locked app's name, the time of the attempt, and your device model over an encrypted connection to our server, for the sole purpose of emailing them to your verified address.</li>
-  <li><strong>Usage analytics (with your consent):</strong> Via Google Analytics for Firebase we collect anonymous product events — for example which onboarding step you reached, which features you open, and whether a purchase screen was shown — together with app version, device model, OS version, coarse region, and a randomly generated app-instance identifier. Collection is off until you consent, and you can change your choice at any time from Privacy Settings in the app.</li>
+  <li><strong>Notifications:</strong> The app shows local notifications, for example break-in alerts and the prompt to lock a newly installed app. They are not sent to external servers.</li>
+  <li><strong>Notification access (optional, AppLocker Pro):</strong> If you turn on Hide notification content, AppLocker uses Android's notification access to remove notifications from the apps you have locked and shows a neutral placeholder instead. It does not read, store, or send the content of any notification.</li>
+  <li><strong>Usage analytics:</strong> Via Google Analytics for Firebase we collect anonymous product events — for example which onboarding step you reached, which features you open, and whether a purchase screen was shown — together with app version, device model, OS version, coarse region, and a randomly generated app-instance identifier. In the European Economic Area, the UK and Switzerland, collection stays off unless you agree in the privacy message the app shows when you first open it, and you can change your choice at any time under Settings → Privacy settings in the app. Elsewhere, usage analytics is on by default.</li>
   <li><strong>Crash diagnostics:</strong> Via Firebase Crashlytics, if the app crashes we collect the crash report (stack trace), device model, OS version, and app version so we can fix the fault.</li>
 </ul>
 
 <h2>Data We Do NOT Collect</h2>
 <ul>
-  <li>We do not collect your name, phone number, or location.</li>
-  <li>We collect an email address <em>only</em> if you explicitly enable Email Break-in Alerts. No email is required to use the app.</li>
+  <li>We do not collect your name, email address, phone number, or location.</li>
   <li>Your PIN and pattern never leave your device.</li>
-  <li>Intruder photos stay on your device unless you enable Email Break-in Alerts.</li>
+  <li>Intruder photos stay on your device.</li>
   <li>We never collect the contents of your locked apps, your messages, or your files.</li>
   <li>Analytics and crash data never include your PIN, your photos, or the list of apps you have locked.</li>
   <li>We do not sell your data.</li>
@@ -47,10 +45,12 @@
 
 <h2>Third-Party Services</h2>
 <ul>
-  <li><strong>Google AdMob:</strong> The free version displays ads served by Google AdMob. AdMob may collect an advertising ID (GAID) for ad personalization. See <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</li>
-  <li><strong>Google Play Billing:</strong> In-app purchases are processed by Google Play. We do not handle or store payment information directly.</li>
-  <li><strong>Google Analytics for Firebase:</strong> Anonymous usage analytics, collected only with your consent. See <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</li>
+  <li><strong>Google AdMob:</strong> The free version displays ads served by Google AdMob. AdMob may collect an advertising ID (GAID) for ad personalization. In the European Economic Area, the UK and Switzerland, ads are personalized only if you agree in the privacy message. See <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</li>
+  <li><strong>Google Play Billing:</strong> Purchases and the AppLocker Pro subscription are processed by Google Play. We do not handle or store payment information directly.</li>
+  <li><strong>Google Play in-app updates and reviews:</strong> Update prompts and the optional rating prompt are shown by Google Play.</li>
+  <li><strong>Google Analytics for Firebase:</strong> Anonymous usage analytics (in the European Economic Area, the UK and Switzerland only with your consent). See <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</li>
   <li><strong>Firebase Crashlytics:</strong> Crash and stability reporting. See <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</li>
+  <li><strong>Firebase Remote Config:</strong> Lets us change app settings, such as the free-plan app limit, without an app update. See <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</li>
 </ul>
 
 <h2>Permissions Explained</h2>
@@ -59,14 +59,21 @@
   <li><strong>FOREGROUND_SERVICE / FOREGROUND_SERVICE_SPECIAL_USE:</strong> Keeps the app monitor running to intercept locked app launches.</li>
   <li><strong>SYSTEM_ALERT_WINDOW:</strong> Required to display the lock screen over other apps.</li>
   <li><strong>PACKAGE_USAGE_STATS:</strong> Detects which app is currently in the foreground.</li>
-  <li><strong>CAMERA:</strong> Used only for the Intruder Selfie premium feature.</li>
-  <li><strong>USE_BIOMETRIC:</strong> Allows fingerprint unlock (Premium feature).</li>
+  <li><strong>CAMERA:</strong> Used only for the Intruder Selfie feature (AppLocker Pro or Lifetime Premium), and only after you allow it.</li>
+  <li><strong>USE_BIOMETRIC:</strong> Allows fingerprint unlock (AppLocker Pro or Lifetime Premium).</li>
   <li><strong>RECEIVE_BOOT_COMPLETED:</strong> Restarts the lock service automatically on device reboot.</li>
+  <li><strong>POST_NOTIFICATIONS:</strong> Shows the local notifications described above (Android 13 and later ask first).</li>
+  <li><strong>REQUEST_IGNORE_BATTERY_OPTIMIZATIONS:</strong> Asks to run without battery restrictions, because some phones stop background apps and that would switch your locks off.</li>
+  <li><strong>Notification access (BIND_NOTIFICATION_LISTENER_SERVICE):</strong> Only if you turn on Hide notification content (AppLocker Pro), as described above.</li>
+  <li><strong>Device administrator (BIND_DEVICE_ADMIN):</strong> Only if you turn on Uninstall Protection, to stop others from uninstalling AppLocker. It uses no device-administrator policies.</li>
+  <li><strong>INTERNET / ACCESS_NETWORK_STATE / AD_ID:</strong> Used by the ad, purchase, analytics, crash-reporting and configuration services listed above.</li>
 </ul>
 
 <h2>Data Security</h2>
-<p>Your PIN is stored locally on your device in a hashed format (SHA-256) and never leaves it. Unless you turn on Email Break-in Alerts, no personal data is sent off your device.</p>
-<p>If you do turn on Email Break-in Alerts, evidence is sent to a server we operate at devcode.cloud over an encrypted (HTTPS/TLS) connection. That server <strong>relays and discards</strong>: the intruder photo is attached to the email sent to you and is never written to disk on the server. Your email address is held only transiently — to check the verification code and to enforce anti-abuse rate limits — and is not kept as a permanent record. Alerts can only be sent to an address you have verified with a code.</p>
+<p>Your PIN is stored locally on your device in a hashed format (SHA-256) and never leaves it. Apart from the usage analytics, the crash diagnostics, and the ad, purchase and configuration services described above, no data is sent off your device.</p>
+
+<h2>Data Retention and Deletion</h2>
+<p>Everything AppLocker stores on your device (the hashed PIN or pattern, your settings, the list of locked apps, intruder photos and the break-in history) stays there. You can delete intruder photos and the break-in history in the app at any time, and uninstalling the app or clearing its data deletes all of it. Analytics and crash data are kept by Google under its retention settings. To ask about them or to request deletion, contact us at the address below.</p>
 
 <h2>Children's Privacy</h2>
 <p>AppLocker is not directed at children under 13. We do not knowingly collect data from children.</p>

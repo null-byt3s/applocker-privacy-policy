@@ -24,20 +24,24 @@
 <h2>Data We Collect</h2>
 <ul>
   <li><strong>Installed app list:</strong> We query the list of installed applications on your device solely to display them in the app list so you can choose which apps to lock. This data never leaves your device.</li>
-  <li><strong>Camera (Intruder Selfie):</strong> If you enable the Intruder Selfie feature (paid: AppLocker Pro or Lifetime Premium) and allow camera access, the front camera captures a photo when someone enters the wrong PIN. Photos are stored locally on your device and never leave it.</li>
+  <li><strong>Camera (Intruder Selfie):</strong> If you enable the Intruder Selfie feature (paid: AppLocker Pro or Lifetime Premium) and allow camera access, the front camera captures a photo when someone enters the wrong PIN. Photos are stored locally on your device. They only leave it if you separately turn on Email Break-in Alerts (see below).</li>
+  <li><strong>Break-in history:</strong> When a wrong PIN, pattern or fingerprint is entered on a locked app, AppLocker records which app it was and when, on your device. With AppLocker Pro or Lifetime Premium it also keeps the intruder photo and the code that was tried. This history stays on your device unless you turn on Email Break-in Alerts.</li>
   <li><strong>Usage Stats:</strong> We use Android's UsageStatsManager to detect when a locked app is launched. This data is processed locally in real time and is never stored or transmitted.</li>
   <li><strong>Biometric data:</strong> Fingerprint/biometric authentication is handled entirely by the Android OS (BiometricPrompt). We do not access or store any biometric data.</li>
   <li><strong>Notifications:</strong> The app shows local notifications, for example break-in alerts and the prompt to lock a newly installed app. They are not sent to external servers.</li>
   <li><strong>Notification access (optional, AppLocker Pro):</strong> If you turn on Hide notification content, AppLocker uses Android's notification access to remove notifications from the apps you have locked and shows a neutral placeholder instead. It does not read, store, or send the content of any notification.</li>
-  <li><strong>Usage analytics:</strong> Via Google Analytics for Firebase we collect anonymous product events — for example which onboarding step you reached, which features you open, and whether a purchase screen was shown — together with app version, device model, OS version, coarse region, and a randomly generated app-instance identifier. In the European Economic Area, the UK and Switzerland, collection stays off unless you agree in the privacy message the app shows when you first open it, and you can change your choice at any time under Settings → Privacy settings in the app. Elsewhere, usage analytics is on by default.</li>
+  <li><strong>Email address (optional, AppLocker Pro):</strong> Only if you turn on Email Break-in Alerts. We email a 6-digit code to the address to confirm it belongs to you, and then use it to deliver your alerts. You can change it or switch the feature off at any time.</li>
+  <li><strong>Break-in evidence (optional, AppLocker Pro):</strong> While Email Break-in Alerts is on, each failed unlock sends the intruder photo (if one was taken), the locked app's name and package name, the code that was tried, the time of the attempt, your device model and your device's Android ID (an identifier used only to match the verification code to your device and to limit abuse) over an encrypted connection to our server, for the sole purpose of emailing them to your verified address. Requests for a verification code also send the Android ID.</li>
+  <li><strong>Usage analytics:</strong> Via Google Analytics for Firebase we collect anonymous product events — for example which onboarding step you reached, which features you open, whether a purchase screen was shown, and that a break-in attempt was recorded (never which app, the code that was tried or the photo) — together with app version, device model, OS version, coarse region, and a randomly generated app-instance identifier. In the European Economic Area, the UK and Switzerland, collection stays off unless you agree in the privacy message the app shows when you first open it, and you can change your choice at any time under Settings → Privacy settings in the app. Elsewhere, usage analytics is on by default.</li>
   <li><strong>Crash diagnostics:</strong> Via Firebase Crashlytics, if the app crashes we collect the crash report (stack trace), device model, OS version, and app version so we can fix the fault.</li>
 </ul>
 
 <h2>Data We Do NOT Collect</h2>
 <ul>
-  <li>We do not collect your name, email address, phone number, or location.</li>
-  <li>Your PIN and pattern never leave your device.</li>
-  <li>Intruder photos stay on your device.</li>
+  <li>We do not collect your name, phone number, or location.</li>
+  <li>We collect an email address only if you turn on Email Break-in Alerts. No email address is needed to use the app.</li>
+  <li>Your PIN, pattern and recovery code never leave your device.</li>
+  <li>Intruder photos stay on your device unless you turn on Email Break-in Alerts.</li>
   <li>We never collect the contents of your locked apps, your messages, or your files.</li>
   <li>Analytics and crash data never include your PIN, your photos, or the list of apps you have locked.</li>
   <li>We do not sell your data.</li>
@@ -51,6 +55,7 @@
   <li><strong>Google Analytics for Firebase:</strong> Anonymous usage analytics (in the European Economic Area, the UK and Switzerland only with your consent). See <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</li>
   <li><strong>Firebase Crashlytics:</strong> Crash and stability reporting. See <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</li>
   <li><strong>Firebase Remote Config:</strong> Lets us change app settings, such as the free-plan app limit, without an app update. See <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</li>
+  <li><strong>Oracle Cloud (server and Email Delivery):</strong> Hosts our alert server and sends the verification code and the break-in alert emails, only if you turn on Email Break-in Alerts. See <a href="https://www.oracle.com/legal/privacy/">Oracle's Privacy Policy</a>.</li>
 </ul>
 
 <h2>Permissions Explained</h2>
@@ -66,14 +71,15 @@
   <li><strong>REQUEST_IGNORE_BATTERY_OPTIMIZATIONS:</strong> Asks to run without battery restrictions, because some phones stop background apps and that would switch your locks off.</li>
   <li><strong>Notification access (BIND_NOTIFICATION_LISTENER_SERVICE):</strong> Only if you turn on Hide notification content (AppLocker Pro), as described above.</li>
   <li><strong>Device administrator (BIND_DEVICE_ADMIN):</strong> Only if you turn on Uninstall Protection, to stop others from uninstalling AppLocker. It uses no device-administrator policies.</li>
-  <li><strong>INTERNET / ACCESS_NETWORK_STATE / AD_ID:</strong> Used by the ad, purchase, analytics, crash-reporting and configuration services listed above.</li>
+  <li><strong>INTERNET / ACCESS_NETWORK_STATE / AD_ID:</strong> Used by the ad, purchase, analytics, crash-reporting and configuration services listed above, and by Email Break-in Alerts if you turn them on.</li>
 </ul>
 
 <h2>Data Security</h2>
-<p>Your PIN is stored locally on your device in a hashed format (SHA-256) and never leaves it. Apart from the usage analytics, the crash diagnostics, and the ad, purchase and configuration services described above, no data is sent off your device.</p>
+<p>Your PIN, pattern and recovery code are stored locally on your device in a hashed format (SHA-256) and never leave it. Apart from the usage analytics, the crash diagnostics, the ad, purchase and configuration services and, if you turn them on, Email Break-in Alerts, all described above, no data is sent off your device.</p>
+<p>If you turn on Email Break-in Alerts, the evidence is sent over an encrypted (HTTPS/TLS) connection to a server we operate at api.devcode.cloud (Oracle Cloud, Frankfurt, Germany). The server shrinks the photo in memory, attaches it to the email it sends to your verified address and never writes the photo to disk. Your email address and your device's Android ID are held only briefly, to check the verification code and to limit abuse (at most 2 days), and are not kept as a permanent record; the server's logs don't contain your email address. Like most web servers, ours keeps standard access logs (IP address, time and request) for up to 14 days for security. Alerts can only be sent to an address you have verified with a code.</p>
 
 <h2>Data Retention and Deletion</h2>
-<p>Everything AppLocker stores on your device (the hashed PIN or pattern, your settings, the list of locked apps, intruder photos and the break-in history) stays there. You can delete intruder photos and the break-in history in the app at any time, and uninstalling the app or clearing its data deletes all of it. Analytics and crash data are kept by Google under its retention settings. To ask about them or to request deletion, contact us at the address below.</p>
+<p>Everything AppLocker stores on your device (the hashed PIN or pattern, your settings, the list of locked apps, intruder photos and the break-in history) stays there. You can delete intruder photos and the break-in history in the app at any time, and uninstalling the app or clearing its data deletes all of it. If you use Email Break-in Alerts, the alert emails are in your own mailbox; our server keeps no copy of them, and your address and Android ID are deleted from it within 2 days. Analytics and crash data are kept by Google under its retention settings. To ask about them or to request deletion, contact us at the address below.</p>
 
 <h2>Children's Privacy</h2>
 <p>AppLocker is not directed at children under 13. We do not knowingly collect data from children.</p>
@@ -83,7 +89,7 @@
 
 <h2>Contact Us</h2>
 <p>If you have questions about this Privacy Policy, contact us at:<br/>
-<a href="mailto:under.cntrl.dev@gmail.com">under.cntrl.dev@gmail.com</a></p>
+<a href="mailto:info@devcode.cloud">info@devcode.cloud</a></p>
 
 </body>
 </html>
